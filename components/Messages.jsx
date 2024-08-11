@@ -5,15 +5,13 @@ const Messages = ({ messages }) => {
   return (
     <div className="flex max-h-[calc(100vh - 3.5rem - 7rem)] flex-1 flex-col overflow-y-auto">
       {messages.length ? (
-        messages.map((message, i) => {
-          return (
-            <Message
-              key={i}
-              content={message.content}
-              isUserMessage={message.role === "user"}
-            />
-          );
-        })
+        messages.map((message) => (
+          <Message
+            key={message.id} // Use message.id if available, otherwise fallback to index
+            content={message.content}
+            isUserMessage={message.role === "user"}
+          />
+        ))
       ) : (
         <div className="flex-1 flex flex-col items-center justify-center gap-2">
           <MessageSquare className="size-8 text-blue-500 " />
