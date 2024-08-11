@@ -3,10 +3,11 @@ import { Bot, User } from "lucide-react";
 
 export const Message = ({ content, isUserMessage }) => {
   return (
-    <div
+    <div  
       className={cn({
         "bg-zinc-800": isUserMessage,
         "bg-zinc-900": !isUserMessage,
+        
       })}
     >
       <div className="p-6">
@@ -28,7 +29,7 @@ export const Message = ({ content, isUserMessage }) => {
           <div className="flex flex-col ml-6 w-full">
             <div className="flex items-center space-x-2">
               <span className="text-sm font-semibold text-gray-900 dark:text-white">
-                {isUserMessage ? "You" : "Website"}
+                {isUserMessage ? "You" : "Chat Genie"}
               </span>
             </div>
             <p className="text-sm font-normal py-2.5 text-gray-900 dark:text-white">
