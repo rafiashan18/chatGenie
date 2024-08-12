@@ -1,12 +1,15 @@
 import { MessageSquare } from "lucide-react";
-import { Message } from "./Message";
+import dynamic from "next/dynamic";
 
+const dynamicMessage = dynamic(()=>import('./Message'),{
+  ssrLfalse,
+})
 const Messages = ({ messages }) => {
   return (
     <div className="flex max-h-[calc(100vh - 3.5rem - 7rem)] flex-1 flex-col overflow-y-auto">
       {messages.length ? (
         messages.map((message) => (
-          <Message
+          <dynamicMessage
             key={message.id} // Use message.id if available, otherwise fallback to index
             content={message.content}
             isUserMessage={message.role === "user"}

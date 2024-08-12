@@ -1,4 +1,4 @@
-"use client";
+
 import { Button, Textarea } from "@nextui-org/react";
 import { Send, Mic, StopCircle } from "lucide-react";
 import { useState, useEffect } from "react";

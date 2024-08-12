@@ -1,3 +1,4 @@
+"use client"
 import { cn } from "@/lib/utils";
 import { Bot, User, Copy, Check, Volume2 } from "lucide-react";
 import { useState, useEffect } from "react";

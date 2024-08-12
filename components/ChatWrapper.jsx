@@ -1,8 +1,13 @@
 "use client";
 import { useChat } from "ai/react";
 import Messages from "./Messages";
-import ChatInput from "./chatInput";
+// import ChatInput from "./chatInput";
 import { useRef, useEffect } from "react";
+
+
+const dynamicChat = dynamic(()=>import('./chatInput'),{
+  ssrLfalse,
+})
 
 export const ChatWrapper = ({ sessionId, initialMessages }) => {
   const { messages, handleInputChange, handleSubmit, input, setInput, isLoading } = useChat({
@@ -36,7 +41,7 @@ export const ChatWrapper = ({ sessionId, initialMessages }) => {
         <div ref={messagesEndRef} />
       </div>
       <div className="p-4 border-t border-gray-200">
-        <ChatInput
+        <dynamicChat
           input={input}
           handleInputChange={handleInputChange}
           handleSubmit={handleSubmit}
